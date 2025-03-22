@@ -49,6 +49,8 @@ sm_y = low_pass(new_y, 1/dt, 4.0)
 plt.plot(new_x, new_y, 'b', label='Original padded 20 pts')
 plt.plot(new_x, sm_y, 'r', label='Smoothed padded')
 plt.plot( x, y, 'o', label='Original data')
+plt.title("Position Data")
+plt.grid(True)
 plt.legend()
 plt.show()
 
@@ -59,6 +61,8 @@ for i in range(1, (n + npad) - 1):
 vel[0] = (sm_y[1] - sm_y[0]) / dt
 vel[n + npad - 1] = (sm_y[n + npad - 1] - sm_y[n + npad - 2]) / dt
 plt.plot(vel)
+plt.title("Velocity Data")
+plt.grid(True)
 plt.show()
 
 for i in range(2, (n + npad) - 2):
@@ -71,6 +75,8 @@ accel[n + npad - 1] = accel[n + npad - 3]
 plt.plot(accel)
 plt.vlines(20, -20.0, 60, 'r', 'dotted')
 plt.vlines(n + 20, -20.0, 60, 'r', 'dotted')
+plt.title("Acceleration Data")
+plt.grid(True)
 plt.show()
 
 # Plot the data and the fitted polynomial
